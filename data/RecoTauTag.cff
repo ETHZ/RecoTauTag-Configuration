@@ -1,6 +1,6 @@
 #ConeIsolation
 include "RecoTauTag/ConeIsolation/data/coneIsolationTauJetTags.cfi"
 
-sequence tautagging = {jetTracksAssociator,coneIsolationTauJetTags}
+sequence tautagging = {coneIsolationTauJetTags}
 
 #

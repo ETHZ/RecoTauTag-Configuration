@@ -1,17 +1,20 @@
 #Full Event content 
 block RecoTauTagFEVT = {
   untracked vstring outputCommands = {
+	"keep *_coneIsolationTauJetTags_*_*"
   }		
 }	
 
 #RECO content
 block RecoTauTagRECO = {
   untracked vstring outputCommands = {
+	"keep *_coneIsolationTauJetTags_*_*"
   }		
 }	
 
 #AOD content
 block RecoTauTagAOD = {
   untracked vstring outputCommands = {
+	"keep *_coneIsolationTauJetTags_*_*"
   }		
 }	
