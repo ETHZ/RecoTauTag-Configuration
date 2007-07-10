@@ -1,20 +1,35 @@
 #Full Event content 
 block RecoTauTagFEVT = {
   untracked vstring outputCommands = {
-	"keep *_coneIsolationTauJetTags_*_*"
+	"keep *_coneIsolationTauJetTags_*_*",
+	"keep *_particleFlowJetCandidates_*_*",
+	"keep *_iterativeCone5PFJets_*_*",
+	"keep *_pfConeIsolation_*_*",
+	"keep *_tauPFProducer_*_*"
+
   }		
 }	
 
 #RECO content
 block RecoTauTagRECO = {
   untracked vstring outputCommands = {
-	"keep *_coneIsolationTauJetTags_*_*"
+	"keep *_coneIsolationTauJetTags_*_*",
+	"keep *_particleFlowJetCandidates_*_*",
+	"keep *_iterativeCone5PFJets_*_*",
+	"keep *_pfConeIsolation_*_*",
+	"keep *_tauPFProducer_*_*"
+
   }		
 }	
 
 #AOD content
 block RecoTauTagAOD = {
   untracked vstring outputCommands = {
-	"keep *_coneIsolationTauJetTags_*_*"
+	"keep *_coneIsolationTauJetTags_*_*",
+	"keep *_particleFlowJetCandidates_*_*",
+	"keep *_iterativeCone5PFJets_*_*",
+	"keep *_pfConeIsolation_*_*",
+	"keep *_tauPFProducer_*_*"
+
   }		
 }	

@@ -1,0 +1,7 @@
+#PFConeIsolation
+include "RecoTauTag/PFConeIsolation/data/pfConeIsolation.cfi"   
+#PFTau Producer
+include "RecoTauTag/RecoTau/data/tauPFProducer.cfi"
+
+sequence PFTau = {particleFlowJetCandidates,iterativeCone5PFJets,pfConeIsolation,tauPFProducer} 
+#
