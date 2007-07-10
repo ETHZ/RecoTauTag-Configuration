@@ -5,8 +5,9 @@ block RecoTauTagFEVT = {
 	"keep *_particleFlowJetCandidates_*_*",
 	"keep *_iterativeCone5PFJets_*_*",
 	"keep *_pfConeIsolation_*_*",
-	"keep *_tauPFProducer_*_*"
-
+	"keep *_tauPFProducer_*_*",
+	"keep *_combinedTauTag_*_*",
+	"keep *_caloTau_*_*"
   }		
 }	
 
@@ -17,7 +18,9 @@ block RecoTauTagRECO = {
 	"keep *_particleFlowJetCandidates_*_*",
 	"keep *_iterativeCone5PFJets_*_*",
 	"keep *_pfConeIsolation_*_*",
-	"keep *_tauPFProducer_*_*"
+	"keep *_tauPFProducer_*_*",
+	"keep *_combinedTauTag_*_*",
+	"keep *_caloTau_*_*"
 
   }		
 }	
@@ -29,7 +32,9 @@ block RecoTauTagAOD = {
 	"keep *_particleFlowJetCandidates_*_*",
 	"keep *_iterativeCone5PFJets_*_*",
 	"keep *_pfConeIsolation_*_*",
-	"keep *_tauPFProducer_*_*"
+	"keep *_tauPFProducer_*_*",
+	"keep *_combinedTauTag_*_*",
+	"keep *_caloTau_*_*"
 
   }		
 }	
