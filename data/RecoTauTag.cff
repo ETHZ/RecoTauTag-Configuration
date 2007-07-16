@@ -24,7 +24,7 @@ module get = EventSetupRecordDataGetter {
 
 include "RecoTauTag/RecoTau/data/tauCaloProducer.cfi"
 
-sequence tautagging = {coneIsolationTauJetTags,combinedTauTag,caloTau
-}
+sequence tautagging = {coneIsolationTauJetTags,combinedTauTag,tauCaloProducer}
+
 
 #
