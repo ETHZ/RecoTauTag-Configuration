@@ -7,7 +7,7 @@ block RecoTauTagFEVT = {
 	"keep *_pfConeIsolation_*_*",
 	"keep *_tauPFProducer_*_*",
 	"keep *_combinedTauTag_*_*",
-	"keep *_caloTau_*_*"
+	"keep *_tauCaloProducer_*_*"
   }		
 }	
 
@@ -20,7 +20,7 @@ block RecoTauTagRECO = {
 	"keep *_pfConeIsolation_*_*",
 	"keep *_tauPFProducer_*_*",
 	"keep *_combinedTauTag_*_*",
-	"keep *_caloTau_*_*"
+	"keep *_tauCaloProducer_*_*"
 
   }		
 }	
@@ -34,7 +34,7 @@ block RecoTauTagAOD = {
 	"keep *_pfConeIsolation_*_*",
 	"keep *_tauPFProducer_*_*",
 	"keep *_combinedTauTag_*_*",
-	"keep *_caloTau_*_*"
+	"keep *_tauCaloProducer_*_*"
 
   }		
 }	
