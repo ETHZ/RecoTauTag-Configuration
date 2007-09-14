@@ -1,10 +1,31 @@
 #ConeIsolation
+
+# OLD collections
 include "RecoTauTag/ConeIsolation/data/coneIsolationTauJetTags.cfi"
 include "RecoTauTag/CombinedTauTag/data/combinedTauTag.cfi"
 
-include "RecoTauTag/RecoTau/data/tauCaloProducer.cfi"
+#New collections
+include "RecoTauTag/RecoTau/data/CaloRecoTauTagInfoProducer.cfi"
+include "RecoTauTag/RecoTau/data/CaloRecoTauProducer.cfi"
+include "RecoTauTag/RecoTau/data/CaloRecoTauDiscriminationByIsolation.cfi"
 
-sequence tautagging = {coneIsolationTauJetTags,combinedTauTag,tauCaloProducer}
+
+
+sequence  tauTagInfoTags= {
+    coneIsolationTauJetTags,
+    combintauCaloProducer
+}
+
+sequence caloTauReco = { caloRecoTauTagInfoProducer,
+    caloRecoTauProducer,
+    caloRecoTauDiscriminationByIsolation
+}
+
+sequence tautagging = {
+	tauTagInfoTags
+#    tauTagInfoTags,
+#    caloTauReco
+}
 
 
 #
