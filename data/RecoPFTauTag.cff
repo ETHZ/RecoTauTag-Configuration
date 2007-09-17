@@ -1,15 +1,13 @@
-#PFConeIsolation
-include "RecoTauTag/PFConeIsolation/data/pfConeIsolation.cfi"   
-#PFTau Producer
+#
+include "RecoParticleFlow/PFProducer/data/particleFlowJetCandidates.cfi"
 include "RecoBTau/JetTracksAssociator/data/pfJetTracksAssociator.cfi"
-
-include "RecoTauTag/RecoTau/data/PFRecoTauTagInfoProducer.cfi"
+#PFTauTagInfo Producer
+include "RecoTauTag/RecoTau/data/PFRecoTauTagInfoProducer.cfi"   
+#PFTau Producer
 include "RecoTauTag/RecoTau/data/PFRecoTauProducer.cfi"
+#PFTauDiscriminatorByIsolation Producer
 include "RecoTauTag/RecoTau/data/PFRecoTauDiscriminationByIsolation.cfi"
 
-
-sequence PFTau = {iterativeCone5PFJets,pfConeIsolation
-#,pfJetTracksAssociator,pfRecoTauTagInfoProducer,pfRecoTauProducer,pfRecoTauDiscriminationByIsolation
-}
-
+sequence PFTau = {particleFlowJetCandidates,iterativeCone5PFJets,pfJetTracksAssociator,pfRecoTauTagInfoProducer,pfRecoTauProducer,pfRecoTauDiscriminationByIsolation} 
 #
+

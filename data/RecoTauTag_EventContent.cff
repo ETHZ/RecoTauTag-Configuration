@@ -1,56 +1,44 @@
 #Full Event content 
 block RecoTauTagFEVT = {
   untracked vstring outputCommands = {
-	"keep *_coneIsolationTauJetTags_*_*",
 	"keep *_particleFlowJetCandidates_*_*",
 	"keep *_iterativeCone5PFJets_*_*",
-	"keep *_pfConeIsolation_*_*",
 	"keep *_pfJetTracksAssociator_*_*",
 	"keep *_pfRecoTauTagInfoProducer_*_*",
 	"keep *_pfRecoTauProducer_*_*",
 	"keep *_pfRecoTauDiscriminationByIsolation_*_*",
-	"keep *_combinedTauTag_*_*",
 	"keep *_caloRecoTauTagInfoProducer_*_*",
-	"keep *_caloRecoTauProducer_*_*",
-	"keep *_caloRecoTauDiscriminationByIsolation_*_*"
+	"keep *_caloRecoTauProducer_*_*"  
+        "keep *_caloRecoTauDiscriminationByIsolation_*_*"
   }		
 }	
 
 #RECO content
 block RecoTauTagRECO = {
   untracked vstring outputCommands = {
-	"keep *_coneIsolationTauJetTags_*_*",
 	"keep *_particleFlowJetCandidates_*_*",
 	"keep *_iterativeCone5PFJets_*_*",
-	"keep *_pfConeIsolation_*_*",
 	"keep *_pfJetTracksAssociator_*_*",
 	"keep *_pfRecoTauTagInfoProducer_*_*",
 	"keep *_pfRecoTauProducer_*_*",
 	"keep *_pfRecoTauDiscriminationByIsolation_*_*",
-	"keep *_tauPFProducer_*_*",
-	"keep *_combinedTauTag_*_*",
 	"keep *_caloRecoTauTagInfoProducer_*_*",
-	"keep *_caloRecoTauProducer_*_*",
-	"keep *_caloRecoTauDiscriminationByIsolation_*_*"
-	
+	"keep *_caloRecoTauProducer_*_*"  
+        "keep *_caloRecoTauDiscriminationByIsolation_*_*"
   }		
 }	
 
 #AOD content
 block RecoTauTagAOD = {
   untracked vstring outputCommands = {
-	"keep *_coneIsolationTauJetTags_*_*",
 	"keep *_particleFlowJetCandidates_*_*",
 	"keep *_iterativeCone5PFJets_*_*",
-	"keep *_pfConeIsolation_*_*",
 	"keep *_pfJetTracksAssociator_*_*",
 	"keep *_pfRecoTauTagInfoProducer_*_*",
 	"keep *_pfRecoTauProducer_*_*",
 	"keep *_pfRecoTauDiscriminationByIsolation_*_*",
-	"keep *_tauPFProducer_*_*",
-	"keep *_combinedTauTag_*_*",
 	"keep *_caloRecoTauTagInfoProducer_*_*",
-	"keep *_caloRecoTauProducer_*_*",
-	"keep *_caloRecoTauDiscriminationByIsolation_*_*"
+	"keep *_caloRecoTauProducer_*_*"  
+        "keep *_caloRecoTauDiscriminationByIsolation_*_*"
   }		
 }	
