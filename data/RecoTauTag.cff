@@ -1,7 +1,5 @@
- #OLD dataformats ConeIsolation
- include "RecoTauTag/ConeIsolation/data/coneIsolationTauJetTags.cfi"
- include "RecoTauTag/CombinedTauTag/data/combinedTauTag.cfi"
-
+#OLD dataformats ConeIsolation
+include "RecoTauTag/ConeIsolation/data/coneIsolationTauJetTags.cfi"
 
 #CaloTauTagInfo Producer
 include "RecoTauTag/RecoTau/data/CaloRecoTauTagInfoProducer.cfi"   
@@ -10,5 +8,5 @@ include "RecoTauTag/RecoTau/data/CaloRecoTauProducer.cfi"
 #CaloTauDiscriminatorByIsolation Producer
 include "RecoTauTag/RecoTau/data/CaloRecoTauDiscriminationByIsolation.cfi"
 
-sequence tautagging = {coneIsolationTauJetTags,combinedTauTag,caloRecoTauTagInfoProducer,caloRecoTauProducer,caloRecoTauDiscriminationByIsolation}
+sequence tautagging = {coneIsolationTauJetTags,caloRecoTauTagInfoProducer,caloRecoTauProducer,caloRecoTauDiscriminationByIsolation}
 #
