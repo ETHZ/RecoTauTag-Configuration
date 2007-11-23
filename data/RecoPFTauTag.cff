@@ -1,4 +1,5 @@
 #
+include "TrackingTools/TransientTrack/data/TransientTrackBuilder.cfi"
 include "RecoParticleFlow/PFProducer/data/particleFlowJetCandidates.cfi"
 include "RecoJets/JetAssociationProducers/data/ic5PFJetTracksAssociatorAtVertex.cfi"
 #PFTauTagInfo Producer
@@ -8,6 +9,16 @@ include "RecoTauTag/RecoTau/data/PFRecoTauProducer.cfi"
 #PFTauDiscriminatorByIsolation Producer
 include "RecoTauTag/RecoTau/data/PFRecoTauDiscriminationByIsolation.cfi"
 
-sequence PFTau = {particleFlowJetCandidates,iterativeCone5PFJets,ic5PFJetTracksAssociatorAtVertex,pfRecoTauTagInfoProducer,pfRecoTauProducer,pfRecoTauDiscriminationByIsolation} 
+#PFRecoTau, Higher efficiency
+module pfRecoTauProducerHighEfficiency = pfRecoTauProducer from "RecoTauTag/RecoTau/data/PFRecoTauProducer.cfi"
+replace pfRecoTauProducerHighEfficiency.TrackerSignalConeSizeFormula ="5.0/ET"
+replace pfRecoTauProducerHighEfficiency.TrackerSignalConeSize_min     = 0.07
+replace pfRecoTauProducerHighEfficiency.TrackerSignalConeSize_max     = 0.15
+
+module pfRecoTauDiscriminationHighEfficiency = pfRecoTauDiscriminationByIsolation from  "RecoTauTag/RecoTau/data/PFRecoTauDiscriminationByIsolation.cfi"
+replace pfRecoTauDiscriminationHighEfficiency.PFTauProducer = "pfRecoTauProducerHighEfficiency"
+
+
+sequence PFTau = {particleFlowJetCandidates,iterativeCone5PFJets,ic5PFJetTracksAssociatorAtVertex,pfRecoTauTagInfoProducer,pfRecoTauProducer,pfRecoTauProducerHighEfficiency,pfRecoTauDiscriminationByIsolation,} 
 #
 
