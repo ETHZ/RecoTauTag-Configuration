@@ -14,6 +14,7 @@ module pfRecoTauProducerHighEfficiency = pfRecoTauProducer from "RecoTauTag/Reco
 replace pfRecoTauProducerHighEfficiency.TrackerSignalConeSizeFormula ="5.0/ET"
 replace pfRecoTauProducerHighEfficiency.TrackerSignalConeSize_min     = 0.07
 replace pfRecoTauProducerHighEfficiency.TrackerSignalConeSize_max     = 0.15
+replace pfRecoTauProducerHighEfficiency.GammaCand_minPt = 1.5
 
 module pfRecoTauDiscriminationHighEfficiency = pfRecoTauDiscriminationByIsolation from  "RecoTauTag/RecoTau/data/PFRecoTauDiscriminationByIsolation.cfi"
 replace pfRecoTauDiscriminationHighEfficiency.PFTauProducer = "pfRecoTauProducerHighEfficiency"
