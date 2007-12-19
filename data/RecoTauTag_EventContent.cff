@@ -8,6 +8,8 @@ block RecoTauTagFEVT = {
 	"keep *_pfRecoTauTagInfoProducer_*_*",
 	"keep *_pfRecoTauProducer_*_*",
 	"keep *_pfRecoTauDiscriminationByIsolation_*_*",
+	"keep *_pfRecoTauProducerHighEfficiency_*_*",
+	"keep *_pfRecoTauDiscriminationHighEfficiency_*_*",
 	"keep *_caloRecoTauTagInfoProducer_*_*",
 	"keep *_caloRecoTauProducer_*_*",  
         "keep *_caloRecoTauDiscriminationByIsolation_*_*"
@@ -24,6 +26,8 @@ block RecoTauTagRECO = {
 	"keep *_pfRecoTauTagInfoProducer_*_*",
 	"keep *_pfRecoTauProducer_*_*",
 	"keep *_pfRecoTauDiscriminationByIsolation_*_*",
+	"keep *_pfRecoTauProducerHighEfficiency_*_*",
+	"keep *_pfRecoTauDiscriminationHighEfficiency_*_*",
 	"keep *_caloRecoTauTagInfoProducer_*_*",
 	"keep *_caloRecoTauProducer_*_*",  
         "keep *_caloRecoTauDiscriminationByIsolation_*_*"
@@ -40,6 +44,8 @@ block RecoTauTagAOD = {
 	"keep *_pfRecoTauTagInfoProducer_*_*",
 	"keep *_pfRecoTauProducer_*_*",
 	"keep *_pfRecoTauDiscriminationByIsolation_*_*",
+	"keep *_pfRecoTauProducerHighEfficiency_*_*",
+	"keep *_pfRecoTauDiscriminationHighEfficiency_*_*",
 	"keep *_caloRecoTauTagInfoProducer_*_*",
 	"keep *_caloRecoTauProducer_*_*",  
         "keep *_caloRecoTauDiscriminationByIsolation_*_*"
