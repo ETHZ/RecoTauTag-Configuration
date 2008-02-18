@@ -4,10 +4,9 @@ block RecoTauTagFEVT = {
 	"keep *_coneIsolationTauJetTags_*_*",
 	"keep *_particleFlowJetCandidates_*_*",
 	"keep *_iterativeCone5PFJets_*_*",
-	"keep *_pfConeIsolation_*_*",
-	"keep *_tauPFProducer_*_*",
-	"keep *_combinedTauTag_*_*",
-	"keep *_tauCaloProducer_*_*"
+	"keep *_pfJetTracksAssociator_*_*",
+	"keep *_pfRecoTau*_*_*",
+	"keep *_caloRecoTau*_*_*"
   }		
 }	
 
@@ -17,10 +16,9 @@ block RecoTauTagRECO = {
 	"keep *_coneIsolationTauJetTags_*_*",
 	"keep *_particleFlowJetCandidates_*_*",
 	"keep *_iterativeCone5PFJets_*_*",
-	"keep *_pfConeIsolation_*_*",
-	"keep *_tauPFProducer_*_*",
-	"keep *_combinedTauTag_*_*",
-	"keep *_tauCaloProducer_*_*"
+	"keep *_pfJetTracksAssociator_*_*",
+	"keep *_pfRecoTau*_*_*",
+	"keep *_caloRecoTau*_*_*"
 
   }		
 }	
@@ -30,11 +28,8 @@ block RecoTauTagAOD = {
   untracked vstring outputCommands = {
 	"keep *_coneIsolationTauJetTags_*_*",
 	"keep *_particleFlowJetCandidates_*_*",
-	"keep *_iterativeCone5PFJets_*_*",
-	"keep *_pfConeIsolation_*_*",
-	"keep *_tauPFProducer_*_*",
-	"keep *_combinedTauTag_*_*",
-	"keep *_tauCaloProducer_*_*"
+	"keep *_pfRecoTau*_*_*",
+	"keep *_caloRecoTau*_*_*"
 
   }		
 }	
