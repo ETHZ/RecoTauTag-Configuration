@@ -1,7 +1,6 @@
 #
-include "TrackingTools/TransientTrack/data/TransientTrackBuilder.cfi"
 include "RecoParticleFlow/PFProducer/data/particleFlowJetCandidates.cfi"
-include "RecoJets/JetAssociationProducers/data/ic5PFJetTracksAssociatorAtVertex.cfi"
+include "RecoBTau/JetTracksAssociator/data/pfJetTracksAssociator.cfi"
 #PFTauTagInfo Producer
 include "RecoTauTag/RecoTau/data/PFRecoTauTagInfoProducer.cfi"   
 #PFTau Producer

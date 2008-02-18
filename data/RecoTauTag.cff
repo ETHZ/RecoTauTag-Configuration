@@ -1,4 +1,3 @@
-include "TrackingTools/TransientTrack/data/TransientTrackBuilder.cfi"
 #OLD dataformats ConeIsolation
 include "RecoTauTag/ConeIsolation/data/coneIsolationTauJetTags.cfi"
 
