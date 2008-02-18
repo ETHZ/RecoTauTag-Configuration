@@ -2,9 +2,9 @@
 include "RecoTauTag/ConeIsolation/data/coneIsolationTauJetTags.cfi"
 include "RecoTauTag/CombinedTauTag/data/combinedTauTag.cfi"
 
-include "RecoTauTag/RecoTau/data/tauCaloProducer.cfi"
+include "RecoTauTag/RecoTau/data/CaloTauProducer.cff"
 
-sequence tautagging = {coneIsolationTauJetTags,combinedTauTag,tauCaloProducer}
+sequence tautagging = {coneIsolationTauJetTags,combinedTauTag,CaloTau}
 
 
 #
