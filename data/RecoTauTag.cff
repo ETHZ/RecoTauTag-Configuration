@@ -1,10 +1,7 @@
-#ConeIsolation
+#OLD dataformats 
 include "RecoTauTag/ConeIsolation/data/coneIsolationTauJetTags.cfi"
 include "RecoTauTag/CombinedTauTag/data/combinedTauTag.cfi"
 
 include "RecoTauTag/RecoTau/data/CaloTauProducer.cff"
 
-sequence tautagging = {coneIsolationTauJetTags,combinedTauTag,CaloTau}
-
-
-#
+sequence tautagging = {coneIsolationTauJetTags,combinedTauTag,caloRecoTauTagInfoProducer,caloRecoTauProducer,caloRecoTauDiscriminationByIsolation}
