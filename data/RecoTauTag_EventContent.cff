@@ -2,7 +2,6 @@
 block RecoTauTagFEVT = {
   untracked vstring outputCommands = {
         "keep *_coneIsolationTauJetTags_*_*",	
-	"keep *_particleFlowJetCandidates_*_*",
         "keep *_iterativeCone5PFJets_*_*",
 	"keep *_ic5PFJetTracksAssociatorAtVertex_*_*",
 	"keep *_pfRecoTauTagInfoProducer_*_*",
@@ -20,7 +19,6 @@ block RecoTauTagFEVT = {
 block RecoTauTagRECO = {
   untracked vstring outputCommands = {
         "keep *_coneIsolationTauJetTags_*_*",
-        "keep *_particleFlowJetCandidates_*_*",
 	"keep *_iterativeCone5PFJets_*_*",
 	"keep *_ic5PFJetTracksAssociatorAtVertex_*_*",
 	"keep *_pfRecoTauTagInfoProducer_*_*",
@@ -38,7 +36,6 @@ block RecoTauTagRECO = {
 block RecoTauTagAOD = {
   untracked vstring outputCommands = {
         "keep *_coneIsolationTauJetTags_*_*",
-	"keep *_particleFlowJetCandidates_*_*",
 	"keep *_iterativeCone5PFJets_*_*",
 	"keep *_ic5PFJetTracksAssociatorAtVertex_*_*",
 	"keep *_pfRecoTauTagInfoProducer_*_*",
