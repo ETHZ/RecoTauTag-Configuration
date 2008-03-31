@@ -1,8 +1,6 @@
 #
 include "TrackingTools/TransientTrack/data/TransientTrackBuilder.cfi"
-include "RecoParticleFlow/PFProducer/data/particleFlowJetCandidates.cfi"
 include "RecoJets/JetAssociationProducers/data/ic5PFJetTracksAssociatorAtVertex.cfi"
-include "RecoJets/JetProducers/data/iterativeCone5PFJets.cff"
 #PFTauTagInfo Producer
 include "RecoTauTag/RecoTau/data/PFRecoTauTagInfoProducer.cfi"   
 #PFTau Producer
@@ -21,6 +19,6 @@ module pfRecoTauDiscriminationHighEfficiency = pfRecoTauDiscriminationByIsolatio
 replace pfRecoTauDiscriminationHighEfficiency.PFTauProducer = "pfRecoTauProducerHighEfficiency"
 
 
-sequence PFTau = {iterativeCone5PFJets,ic5PFJetTracksAssociatorAtVertex,pfRecoTauTagInfoProducer,pfRecoTauProducer,pfRecoTauProducerHighEfficiency,pfRecoTauDiscriminationByIsolation,pfRecoTauDiscriminationHighEfficiency} 
+sequence PFTau = {ic5PFJetTracksAssociatorAtVertex,pfRecoTauTagInfoProducer,pfRecoTauProducer,pfRecoTauProducerHighEfficiency,pfRecoTauDiscriminationByIsolation,pfRecoTauDiscriminationHighEfficiency} 
 #
 
