@@ -7,6 +7,9 @@ include "RecoTauTag/RecoTau/data/PFRecoTauTagInfoProducer.cfi"
 include "RecoTauTag/RecoTau/data/PFRecoTauProducer.cfi"
 #PFTauDiscriminatorByIsolation Producer
 include "RecoTauTag/RecoTau/data/PFRecoTauDiscriminationByIsolation.cfi"
+include "RecoTauTag/RecoTau/data/PFRecoTauDiscriminationAgainstElectron.cfi"
+  include "RecoTauTag/RecoTau/data/PFRecoTauDiscriminationAgainstMuon.cfi"
+
 
 #PFRecoTau, Higher efficiency
 module pfRecoTauProducerHighEfficiency = pfRecoTauProducer from "RecoTauTag/RecoTau/data/PFRecoTauProducer.cfi"
@@ -17,8 +20,24 @@ replace pfRecoTauProducerHighEfficiency.GammaCand_minPt = 1.5
 
 module pfRecoTauDiscriminationHighEfficiency = pfRecoTauDiscriminationByIsolation from  "RecoTauTag/RecoTau/data/PFRecoTauDiscriminationByIsolation.cfi"
 replace pfRecoTauDiscriminationHighEfficiency.PFTauProducer = "pfRecoTauProducerHighEfficiency"
+  
+module pfRecoTauDiscriminationHighEfficiencyAgainstElectron = pfRecoTauDiscriminationAgainstElectron from "RecoTauTag/RecoTau/data/PFRecoTauDiscriminationAgainstElectron.cfi"
+replace pfRecoTauDiscriminationHighEfficiencyAgainstElectron.PFTauProducer = "pfRecoTauProducerHighEfficiency"
 
+module pfRecoTauDiscriminationHighEfficiencyAgainstMuon = pfRecoTauDiscriminationAgainstMuon from "RecoTauTag/RecoTau/data/PFRecoTauDiscriminationAgainstMuon.cfi"
+replace pfRecoTauDiscriminationHighEfficiencyAgainstMuon.PFTauProducer = "pfRecoTauProducerHighEfficiency"
 
-sequence PFTau = {ic5PFJetTracksAssociatorAtVertex,pfRecoTauTagInfoProducer,pfRecoTauProducer,pfRecoTauProducerHighEfficiency,pfRecoTauDiscriminationByIsolation,pfRecoTauDiscriminationHighEfficiency} 
+sequence PFTau = {ic5PFJetTracksAssociatorAtVertex,
+	 pfRecoTauTagInfoProducer,
+	 pfRecoTauProducer,
+	 pfRecoTauDiscriminationByIsolation,
+	 pfRecoTauDiscriminationAgainstElectron,	
+	 pfRecoTauDiscriminationAgainstMuon,
+	 pfRecoTauProducerHighEfficiency,
+	 pfRecoTauDiscriminationHighEfficiency, 
+         pfRecoTauDiscriminationHighEfficiencyAgainstElectron,
+	 pfRecoTauDiscriminationHighEfficiencyAgainstMuon
+
+} 
 #
 
