@@ -1,9 +1,0 @@
-#CaloTauTagInfo Producer
-include "RecoTauTag/RecoTau/data/CaloRecoTauTagInfoProducer.cfi"   
-#CaloTau Producer
-include "RecoTauTag/RecoTau/data/CaloRecoTauProducer.cfi"
-#CaloTauDiscriminatorByIsolation Producer
-include "RecoTauTag/RecoTau/data/CaloRecoTauDiscriminationByIsolation.cfi"
-
-sequence tautagging = {caloRecoTauTagInfoProducer,caloRecoTauProducer,caloRecoTauDiscriminationByIsolation}
-#
