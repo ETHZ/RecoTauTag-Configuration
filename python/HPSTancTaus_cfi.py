@@ -18,13 +18,13 @@ combinatoricRecoTausDiscriminationByLeadingPionPtCut = \
         )
 
 # Eventually this will come from the global tag
-from RecoTauTag.TauTagTools.TancConditions_cff import TauTagMVAComputerRecord
-TauTagMVAComputerRecord.connect = cms.string(
-    'sqlite_fip:RecoTauTag/RecoTau/data/hpstanc.db'
-)
-TauTagMVAComputerRecord.toGet[0].tag = cms.string('Tanc')
-# Don't conflict with TaNC global tag
-TauTagMVAComputerRecord.appendToDataLabel = cms.string('hpstanc')
+#from RecoTauTag.TauTagTools.TancConditions_cff import TauTagMVAComputerRecord
+#TauTagMVAComputerRecord.connect = cms.string(
+    #'sqlite_fip:RecoTauTag/RecoTau/data/hpstanc.db'
+#)
+#TauTagMVAComputerRecord.toGet[0].tag = cms.string('Tanc')
+## Don't conflict with TaNC global tag
+#TauTagMVAComputerRecord.appendToDataLabel = cms.string('hpstanc')
 
 # Build the tanc discriminates
 combinatoricRecoTausDiscriminationByTanc = cms.EDProducer(
@@ -146,6 +146,8 @@ hpsTancTaus = cms.EDProducer(
     cleaners = cms.VPSet(
         # Prefer taus that don't have charge == 3
         cleaners.unitCharge,
+        # Prefer taus that are within DR<0.1 of the jet axis
+        cleaners.matchingConeCut,
         # Prefer taus that pass the lead pion requirement
         cms.PSet(
             name = cms.string("lead pion"),
@@ -188,6 +190,7 @@ hpsTancTausDiscriminationByDecayModeSelection = hpsSelectionDiscriminator.clone(
 )
 
 from RecoTauTag.Configuration.HPSPFTaus_cfi import requireDecayMode,\
+        hpsPFTauDiscriminationByVLooseIsolation,\
         hpsPFTauDiscriminationByLooseIsolation,\
         hpsPFTauDiscriminationByMediumIsolation,\
         hpsPFTauDiscriminationByTightIsolation
@@ -234,6 +237,11 @@ hpsTancRequireDecayMode.decayMode.Producer = cms.InputTag(
     "hpsTancTausDiscriminationByDecayModeSelection")
 
 # Build the isolation discriminators
+hpsTancTausDiscriminationByVLooseIsolation = \
+        hpsPFTauDiscriminationByVLooseIsolation.clone(
+            PFTauProducer = cms.InputTag("hpsTancTaus"),
+            Prediscriminants = hpsTancRequireDecayMode
+        )
 hpsTancTausDiscriminationByLooseIsolation = \
         hpsPFTauDiscriminationByLooseIsolation.clone(
             PFTauProducer = cms.InputTag("hpsTancTaus"),
@@ -324,6 +332,7 @@ hpsTancTauSequence = cms.Sequence(
     + hpsTancTausDiscriminationByTancMedium
     + hpsTancTausDiscriminationByTancTight
     + hpsTancTausDiscriminationByDecayModeSelection
+    + hpsTancTausDiscriminationByVLooseIsolation
     + hpsTancTausDiscriminationByLooseIsolation
     + hpsTancTausDiscriminationByMediumIsolation
     + hpsTancTausDiscriminationByTightIsolation
