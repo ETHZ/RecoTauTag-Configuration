@@ -18,13 +18,13 @@ combinatoricRecoTausDiscriminationByLeadingPionPtCut = \
         )
 
 # Eventually this will come from the global tag
-from RecoTauTag.TauTagTools.TancConditions_cff import TauTagMVAComputerRecord
-TauTagMVAComputerRecord.connect = cms.string(
-    'sqlite_fip:RecoTauTag/RecoTau/data/hpstanc.db'
-)
-TauTagMVAComputerRecord.toGet[0].tag = cms.string('Tanc')
-# Don't conflict with TaNC global tag
-TauTagMVAComputerRecord.appendToDataLabel = cms.string('hpstanc')
+#from RecoTauTag.TauTagTools.TancConditions_cff import TauTagMVAComputerRecord
+#TauTagMVAComputerRecord.connect = cms.string(
+    #'sqlite_fip:RecoTauTag/RecoTau/data/hpstanc.db'
+#)
+#TauTagMVAComputerRecord.toGet[0].tag = cms.string('Tanc')
+## Don't conflict with TaNC global tag
+#TauTagMVAComputerRecord.appendToDataLabel = cms.string('hpstanc')
 
 # Build the tanc discriminates
 combinatoricRecoTausDiscriminationByTanc = cms.EDProducer(
@@ -191,6 +191,7 @@ from RecoTauTag.Configuration.HPSPFTaus_cfi import requireDecayMode,\
         hpsPFTauDiscriminationByLooseIsolation,\
         hpsPFTauDiscriminationByMediumIsolation,\
         hpsPFTauDiscriminationByTightIsolation
+        #hpsPFTauDiscriminationByVLooseIsolation,\
 
 # Build the lead track and lepton discriminators
 from RecoTauTag.RecoTau.PFRecoTauDiscriminationByLeadingTrackFinding_cfi import\
