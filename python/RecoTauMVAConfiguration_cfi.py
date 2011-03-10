@@ -1,7 +1,7 @@
 import FWCore.ParameterSet.Config as cms
 
 # Flag to disable/enable MVA dependent tau sequences
-recoTauEnableMVA = True
+recoTauEnableMVA = False
 
 # Temporary code to load database if CMSSW version < 3_11
 # In 3_11 this has entered the global tag.
