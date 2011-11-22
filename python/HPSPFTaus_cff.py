@@ -177,6 +177,23 @@ hpsPFTauDiscriminationByVLooseCombinedIsolationDBSumPtCorr = hpsPFTauDiscriminat
 hpsPFTauDiscriminationByVLooseCombinedIsolationDBSumPtCorr.qualityCuts.isolationQualityCuts.minTrackPt = 0.5
 hpsPFTauDiscriminationByVLooseCombinedIsolationDBSumPtCorr.qualityCuts.isolationQualityCuts.minGammaEt = 0.5
 
+hpsPFTauDiscriminationByRawCombinedIsolationDBSumPtCorr = hpsPFTauDiscriminationByVLooseCombinedIsolationDBSumPtCorr.clone(
+    applySumPtCut = False,
+    storeRawSumPt = cms.bool(True)
+)
+
+hpsPFTauDiscriminationByRawChargedIsolationDBSumPtCorr = hpsPFTauDiscriminationByVLooseCombinedIsolationDBSumPtCorr.clone(
+    applySumPtCut = False,
+    ApplyDiscriminationByECALIsolation = False,
+    storeRawSumPt = cms.bool(True)
+)
+
+hpsPFTauDiscriminationByRawGammaIsolationDBSumPtCorr = hpsPFTauDiscriminationByVLooseCombinedIsolationDBSumPtCorr.clone(
+    applySumPtCut = False,
+    ApplyDiscriminationByTrackerIsolation = False,
+    storeRawSumPt = cms.bool(True)
+)
+
 hpsPFTauDiscriminationByLooseCombinedIsolationDBSumPtCorr = hpsPFTauDiscriminationByLooseIsolationDBSumPtCorr.clone(
     ApplyDiscriminationByTrackerIsolation = True,
     ApplyDiscriminationByECALIsolation = True,
@@ -298,6 +315,11 @@ produceAndDiscriminateHPSPFTaus = cms.Sequence(
     #hpsPFTauDiscriminationByIsolationSeqRhoCorr*
     #hpsPFTauDiscriminationByIsolationSeqCustomRhoCorr*
     hpsPFTauDiscriminationByIsolationSeqDBSumPtCorr*
+
+    hpsPFTauDiscriminationByRawCombinedIsolationDBSumPtCorr*
+    hpsPFTauDiscriminationByRawChargedIsolationDBSumPtCorr*
+    hpsPFTauDiscriminationByRawGammaIsolationDBSumPtCorr*
+
     hpsPFTauDiscriminationByCombinedIsolationSeqDBSumPtCorr*
     hpsPFTauDiscriminationByLooseElectronRejection*
     hpsPFTauDiscriminationByMediumElectronRejection*
