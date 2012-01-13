@@ -277,8 +277,16 @@ hpsPFTauDiscriminationByTightMuonRejection = pfRecoTauDiscriminationAgainstMuon.
 
 hpsPFTauDiscriminationByMVAElectronRejection = pfRecoTauDiscriminationAgainstElectronMVA.clone(
     PFTauProducer = cms.InputTag('hpsPFTauProducer'),
-    Prediscriminants = requireDecayMode,
+    Prediscriminants = requireDecayMode.clone(),
 )
+
+# Additionally require that the MVA electrons pass electron medium
+# (this discriminator was used on the training sample)
+hpsPFTauDiscriminationByMVAElectronRejection.Prediscriminants.electronMedium = \
+        cms.PSet(
+            Producer = cms.InputTag('hpsPFTauDiscriminationByMediumElectronRejection'),
+            cut = cms.double(0.5)
+        )
 
 # Define the HPS selection discriminator used in cleaning
 hpsSelectionDiscriminator.PFTauProducer = cms.InputTag("combinatoricRecoTaus")
