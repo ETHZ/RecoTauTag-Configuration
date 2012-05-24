@@ -11,22 +11,56 @@ authors: Evan Friis, Wisconsin
 
 '''
 
-from RecoTauTag.Configuration.HPSPFTaus_cff import *
+## import for scheduled mode
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByChargedIsolationSeq
+## imports for unscheduled mode
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByVLooseChargedIsolation
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByLooseChargedIsolation
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByMediumChargedIsolation
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByTightChargedIsolation
+## import for scheduled mode
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByMVAIsolationSeq
+## imports for unscheduled mode
+from RecoTauTag.Configuration.HPSPFTaus_cff import kt6PFJetsForRhoComputationVoronoi
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByIsolationMVAraw
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByLooseIsolationMVA
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByMediumIsolationMVA
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByTightIsolationMVA
+## import for (un-)scheduled mode
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByVLooseCombinedIsolationDBSumPtCorr
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByRawCombinedIsolationDBSumPtCorr
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByRawChargedIsolationDBSumPtCorr
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByRawGammaIsolationDBSumPtCorr
+from RecoTauTag.Configuration.HPSPFTaus_cff import pfRecoTauDiscriminationAgainstElectronMVA
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByMVAElectronRejection
+from RecoTauTag.Configuration.HPSPFTaus_cff import pfRecoTauDiscriminationAgainstElectronMVA2
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByMVA2rawElectronRejection
+from RecoTauTag.Configuration.HPSPFTaus_cff import recoTauDiscriminantCutMultiplexer
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByMVA2VLooseElectronRejection
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByMVA2LooseElectronRejection 
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByMVA2MediumElectronRejection
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByMVA2TightElectronRejection
+from RecoTauTag.Configuration.HPSPFTaus_cff import pfRecoTauDiscriminationAgainstMuon
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByLooseMuonRejection
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByMediumMuonRejection
+from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByTightMuonRejection 
 
 updateHPSPFTaus = cms.Sequence(
     hpsPFTauDiscriminationByChargedIsolationSeq*
     hpsPFTauDiscriminationByMVAIsolationSeq*
-
     hpsPFTauDiscriminationByRawCombinedIsolationDBSumPtCorr*
     hpsPFTauDiscriminationByRawChargedIsolationDBSumPtCorr*
     hpsPFTauDiscriminationByRawGammaIsolationDBSumPtCorr*
-
     hpsPFTauDiscriminationByMVAElectronRejection*
     hpsPFTauDiscriminationByMVA2rawElectronRejection*
-    hpsPFTauDiscriminationByMVA2VLooseElectronRejection*
-    hpsPFTauDiscriminationByMVA2LooseElectronRejection*    
-    hpsPFTauDiscriminationByMVA2MediumElectronRejection*
-    hpsPFTauDiscriminationByMVA2TightElectronRejection*
+    hpsPFTauDiscriminationByMVA2Loose1ElectronRejection*
+    hpsPFTauDiscriminationByMVA2Loose2ElectronRejection*
+    hpsPFTauDiscriminationByMVA2Medium1ElectronRejection*
+    hpsPFTauDiscriminationByMVA2Medium2ElectronRejection*
+    hpsPFTauDiscriminationByMVA2Tight1ElectronRejection*
+    hpsPFTauDiscriminationByMVA2Tight2ElectronRejection*
+    hpsPFTauDiscriminationByMVA2VTight1ElectronRejection*
+    hpsPFTauDiscriminationByMVA2VTight2ElectronRejection*    
     hpsPFTauDiscriminationByLooseMuonRejection*
     hpsPFTauDiscriminationByMediumMuonRejection*
     hpsPFTauDiscriminationByTightMuonRejection
