@@ -13,14 +13,30 @@ authors: Evan Friis, Wisconsin
 
 from RecoTauTag.Configuration.HPSPFTaus_cff import *
 
+
 updateHPSPFTaus = cms.Sequence(
+    hpsPFTauDiscriminationByDecayModeFinding*
     hpsPFTauDiscriminationByChargedIsolationSeq*
     hpsPFTauDiscriminationByMVAIsolationSeq*
 
     hpsPFTauDiscriminationByRawCombinedIsolationDBSumPtCorr*
     hpsPFTauDiscriminationByRawChargedIsolationDBSumPtCorr*
     hpsPFTauDiscriminationByRawGammaIsolationDBSumPtCorr*
-
+    hpsPFTauDiscriminationByLooseCombinedIsolationDBSumPtCorr*
+    hpsPFTauDiscriminationByLooseIsolation*
+    hpsPFTauDiscriminationByLooseIsolationDBSumPtCorr*
+    hpsPFTauDiscriminationByMediumCombinedIsolationDBSumPtCorr*
+    hpsPFTauDiscriminationByMediumIsolation*
+    hpsPFTauDiscriminationByMediumIsolationDBSumPtCorr*
+    hpsPFTauDiscriminationByTightCombinedIsolationDBSumPtCorr*
+    hpsPFTauDiscriminationByTightIsolation*
+    hpsPFTauDiscriminationByTightIsolationDBSumPtCorr*
+    hpsPFTauDiscriminationByVLooseCombinedIsolationDBSumPtCorr*
+    hpsPFTauDiscriminationByVLooseIsolation*
+    hpsPFTauDiscriminationByVLooseIsolationDBSumPtCorr*
+    hpsPFTauDiscriminationByLooseElectronRejection*
+    hpsPFTauDiscriminationByMediumElectronRejection*
+    hpsPFTauDiscriminationByTightElectronRejection*
     hpsPFTauDiscriminationByMVAElectronRejection*
     hpsPFTauDiscriminationByMVA2rawElectronRejection*
     hpsPFTauDiscriminationByMVA2VLooseElectronRejection*
