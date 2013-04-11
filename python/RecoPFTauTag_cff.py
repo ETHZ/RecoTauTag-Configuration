@@ -17,7 +17,9 @@ import FWCore.ParameterSet.Config as cms
 
 # Reconstruct the pi zeros in our pre-selected jets.
 from RecoTauTag.RecoTau.RecoTauPiZeroProducer_cfi import \
-        ak5PFJetsRecoTauPiZeros
+     ak5PFJetsRecoTauPiZeros
+from RecoTauTag.RecoTau.PFRecoTauChargedHadronProducer_cfi import \
+     ak5PFJetsRecoTauChargedHadrons
 
 # Collection PFCandidates from a DR=0.8 cone about the jet axis and make new
 # faux jets with this collection
@@ -133,6 +135,7 @@ recoTauClassicFixedConeSequence = cms.Sequence(
 recoTauClassicHPSSequence = cms.Sequence(
     recoTauCommonSequence *
     ak5PFJetsLegacyHPSPiZeros *
+    ak5PFJetsRecoTauChargedHadrons *
     combinatoricRecoTaus *
     produceAndDiscriminateHPSPFTaus
 )
