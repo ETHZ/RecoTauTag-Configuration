@@ -278,8 +278,8 @@ hpsPFTauDiscriminationByMediumIsolationMVA2.Prediscriminants.mva.cut = cms.doubl
 hpsPFTauDiscriminationByTightIsolationMVA2 = copy.deepcopy(hpsPFTauDiscriminationByLooseIsolationMVA2)
 hpsPFTauDiscriminationByTightIsolationMVA2.Prediscriminants.mva.cut = cms.double(0.94)
 
-from RecoJets.Configuration.RecoPFJets_cff import kt6PFJets as dummy
-kt6PFJetsForRhoComputationVoronoi = dummy.clone(
+from RecoJets.Configuration.RecoPFJets_cff import kt6PFJets as _dummy
+kt6PFJetsForRhoComputationVoronoi = _dummy.clone(
     doRhoFastjet = True,
     voronoiRfact = 0.9
 )
@@ -349,6 +349,20 @@ hpsPFTauDiscriminationByTightMuonRejection2 = pfRecoTauDiscriminationAgainstMuon
             Prediscriminants = noPrediscriminants,
             discriminatorOption = cms.string('tight')
         )
+hpsPFTauDiscriminationByLooseMuonRejection3 = pfRecoTauDiscriminationAgainstMuon2.clone(
+             PFTauProducer = cms.InputTag('hpsPFTauProducer'),
+             Prediscriminants = noPrediscriminants,
+             discriminatorOption = cms.string('custom'),
+             maxNumberOfMatches = cms.int32(1),
+             doCaloMuonVeto = cms.bool(True),
+             maxNumberOfHitsLast2Stations = cms.int32(-1)
+             )
+
+hpsPFTauDiscriminationByTightMuonRejection3 = hpsPFTauDiscriminationByLooseMuonRejection3.clone(
+             PFTauProducer = cms.InputTag('hpsPFTauProducer'),
+             Prediscriminants = noPrediscriminants,
+             maxNumberOfHitsLast2Stations = cms.int32(0)
+             )
 
 hpsPFTauDiscriminationByMVAElectronRejection = pfRecoTauDiscriminationAgainstElectronMVA.clone(
     PFTauProducer = cms.InputTag('hpsPFTauProducer'),
@@ -712,5 +726,7 @@ produceAndDiscriminateHPSPFTaus = cms.Sequence(
     hpsPFTauDiscriminationByTightMuonRejection*
     hpsPFTauDiscriminationByLooseMuonRejection2*
     hpsPFTauDiscriminationByMediumMuonRejection2*
-    hpsPFTauDiscriminationByTightMuonRejection2
+    hpsPFTauDiscriminationByTightMuonRejection2*
+    hpsPFTauDiscriminationByLooseMuonRejection3*
+    hpsPFTauDiscriminationByTightMuonRejection3
 )
