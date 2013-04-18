@@ -14,7 +14,7 @@ from RecoTauTag.RecoTau.PFRecoTauDiscriminationByLeadingTrackFinding_cfi        
 from RecoTauTag.RecoTau.PFRecoTauDiscriminationAgainstElectron_cfi                  import *
 from RecoTauTag.RecoTau.PFRecoTauDiscriminationAgainstElectronMVA_cfi               import *
 from RecoTauTag.RecoTau.PFRecoTauDiscriminationAgainstElectronMVA2_cfi              import *
-from RecoTauTag.RecoTau.PFRecoTauDiscriminationAgainstElectronMVA3_cfi              import *
+from RecoTauTag.RecoTau.PFRecoTauDiscriminationAgainstElectronMVA3GBR_cfi              import *
 from RecoTauTag.RecoTau.PFRecoTauDiscriminationAgainstElectronDeadECAL_cfi          import *
 from RecoTauTag.RecoTau.PFRecoTauDiscriminationAgainstMuon_cfi                      import *
 from RecoTauTag.RecoTau.PFRecoTauDiscriminationAgainstMuon2_cfi                     import *
@@ -278,8 +278,8 @@ hpsPFTauDiscriminationByMediumIsolationMVA2.Prediscriminants.mva.cut = cms.doubl
 hpsPFTauDiscriminationByTightIsolationMVA2 = copy.deepcopy(hpsPFTauDiscriminationByLooseIsolationMVA2)
 hpsPFTauDiscriminationByTightIsolationMVA2.Prediscriminants.mva.cut = cms.double(0.94)
 
-from RecoJets.Configuration.RecoPFJets_cff import kt6PFJets as dummy
-kt6PFJetsForRhoComputationVoronoi = dummy.clone(
+from RecoJets.Configuration.RecoPFJets_cff import kt6PFJets as _dummy
+kt6PFJetsForRhoComputationVoronoi = _dummy.clone(
     doRhoFastjet = True,
     voronoiRfact = 0.9
 )
@@ -349,6 +349,20 @@ hpsPFTauDiscriminationByTightMuonRejection2 = pfRecoTauDiscriminationAgainstMuon
             Prediscriminants = noPrediscriminants,
             discriminatorOption = cms.string('tight')
         )
+hpsPFTauDiscriminationByLooseMuonRejection3 = pfRecoTauDiscriminationAgainstMuon2.clone(
+             PFTauProducer = cms.InputTag('hpsPFTauProducer'),
+             Prediscriminants = noPrediscriminants,
+             discriminatorOption = cms.string('custom'),
+             maxNumberOfMatches = cms.int32(1),
+             doCaloMuonVeto = cms.bool(True),
+             maxNumberOfHitsLast2Stations = cms.int32(-1)
+             )
+
+hpsPFTauDiscriminationByTightMuonRejection3 = hpsPFTauDiscriminationByLooseMuonRejection3.clone(
+             PFTauProducer = cms.InputTag('hpsPFTauProducer'),
+             Prediscriminants = noPrediscriminants,
+             maxNumberOfHitsLast2Stations = cms.int32(0)
+             )
 
 hpsPFTauDiscriminationByMVAElectronRejection = pfRecoTauDiscriminationAgainstElectronMVA.clone(
     PFTauProducer = cms.InputTag('hpsPFTauProducer'),
@@ -454,7 +468,7 @@ hpsPFTauDiscriminationByMVA2TightElectronRejection.mapping[7].cut = cms.double(+
 hpsPFTauDiscriminationByMVA2TightElectronRejection.mapping[8].cut = cms.double(+0.87047)
 hpsPFTauDiscriminationByMVA2TightElectronRejection.mapping[9].cut = cms.double(+0.233711)
 
-hpsPFTauDiscriminationByMVA3rawElectronRejection = pfRecoTauDiscriminationAgainstElectronMVA3.clone(
+hpsPFTauDiscriminationByMVA3rawElectronRejection = pfRecoTauDiscriminationAgainstElectronMVA3GBR.clone(
     PFTauProducer = cms.InputTag('hpsPFTauProducer'),
     Prediscriminants = requireDecayMode.clone()
 )
@@ -712,5 +726,7 @@ produceAndDiscriminateHPSPFTaus = cms.Sequence(
     hpsPFTauDiscriminationByTightMuonRejection*
     hpsPFTauDiscriminationByLooseMuonRejection2*
     hpsPFTauDiscriminationByMediumMuonRejection2*
-    hpsPFTauDiscriminationByTightMuonRejection2
+    hpsPFTauDiscriminationByTightMuonRejection2*
+    hpsPFTauDiscriminationByLooseMuonRejection3*
+    hpsPFTauDiscriminationByTightMuonRejection3
 )
