@@ -657,7 +657,7 @@ hpsPFTauProducerSansRefs = cms.EDProducer(
     "RecoTauCleaner",
     src = cms.InputTag("combinatoricRecoTaus"),
     cleaners = cms.VPSet(
-        # Prefer taus that dont' have charge == 3
+        # Reject taus that have charge == 3
         cleaners.unitCharge,
          # Ignore taus reconstructed in pi0 decay modes in which the highest Pt ("leading") pi0 has pt below 2.5 GeV
          # (in order to make decay mode reconstruction less sensitive to pile-up)
@@ -668,15 +668,18 @@ hpsPFTauProducerSansRefs = cms.EDProducer(
             selection = cms.string("signalPiZeroCandidates().size() = 0 | signalPiZeroCandidates()[0].pt > 2.5"),
             selectionPassFunction = cms.string("0"),
             selectionFailValue = cms.double(1e3)
-            ),
-        # Prefer taus that are within DR<0.1 of the jet axis
+        ),
+        # Reject taus that are not within DR<0.1 of the jet axis
 #        cleaners.matchingConeCut,
-        # Prefer taus that pass HPS selections
+        # Reject taus that fail HPS selections
         cms.PSet(
             name = cms.string("HPS_Select"),
             plugin = cms.string("RecoTauDiscriminantCleanerPlugin"),
             src = cms.InputTag("hpsSelectionDiscriminator"),
         ),
+        # CV: Take highes pT tau (use for testing of new high pT tau reconstruction and check if it can become the new default)
+        cleaners.pt,
+        # Take most isolated tau
         cleaners.combinedIsolation
     )
 )
