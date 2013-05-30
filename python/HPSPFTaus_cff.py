@@ -697,6 +697,40 @@ hpsPFTauProducer = cms.EDProducer(
     src = cms.InputTag("hpsPFTauProducerSansRefs")
 )
 
+from RecoTauTag.RecoTau.PFTauPrimaryVertexProducer_cfi      import *
+from RecoTauTag.RecoTau.PFTauSecondaryVertexProducer_cfi    import *
+from RecoTauTag.RecoTau.PFTauTransverseImpactParameters_cfi import *
+hpsPFTauPrimaryVertexProducer = PFTauPrimaryVertexProducer.clone(
+    PFTauTag =  cms.InputTag("hpsPFTauProducer"),
+    ElectronTag = cms.InputTag("MyElectrons"),
+    MuonTag = cms.InputTag("MyMuons"),
+    PVTag = cms.InputTag("offlinePrimaryVertices"),
+    beamSpot = cms.InputTag("offlineBeamSpot"),
+    TrackCollectionTag = cms.InputTag("generalTracks"),
+    Algorithm = cms.int32(1),
+    useBeamSpot = cms.bool(True),
+    RemoveMuonTracks = cms.bool(False),
+    RemoveElectronTracks = cms.bool(False),
+    useSelectedTaus = cms.bool(False)
+    )
+
+hpsPFTauSecondaryVertexProducer = PFTauSecondaryVertexProducer.clone(
+    PFTauTag =  cms.InputTag("hpsPFTauProducer")
+    )
+
+hpsPFTauTransverseImpactParameters = PFTauTransverseImpactParameters.clone(
+    PFTauTag =  cms.InputTag("hpsPFTauProducer"),
+    PFTauPVATag = cms.InputTag("hpsPFTauPrimaryVertexProducer"),
+    PFTauSVATag = cms.InputTag("hpsPFTauSecondaryVertexProducer"),
+    useFullCalculation = cms.bool(False)
+    )
+
+hpsPFTauVertexandImpactParametersSeq = cms.Sequence(
+    hpsPFTauPrimaryVertexProducer
+    *hpsPFTauSecondaryVertexProducer
+    *hpsPFTauTransverseImpactParameters
+    )
+
 produceHPSPFTaus = cms.Sequence(
     hpsSelectionDiscriminator
     #*hpsTightIsolationCleaner
