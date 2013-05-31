@@ -11,7 +11,7 @@ authors: Evan Friis, Wisconsin
 
 '''
 
-## ## import for scheduled mode
+## import for scheduled mode
 from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByChargedIsolationSeq
 from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByDecayModeFinding
 from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByLooseElectronRejection
