@@ -11,7 +11,7 @@ authors: Evan Friis, Wisconsin
 
 '''
 
-## import for scheduled mode
+## ## import for scheduled mode
 from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByChargedIsolationSeq
 from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByDecayModeFinding
 from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByLooseElectronRejection
@@ -42,7 +42,6 @@ from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByIsola
 from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByLooseIsolationMVA2
 from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByMediumIsolationMVA2
 from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByTightIsolationMVA2
-
 
 ## import for (un-)scheduled mode
 from RecoTauTag.Configuration.HPSPFTaus_cff import hpsPFTauDiscriminationByVLooseCombinedIsolationDBSumPtCorr

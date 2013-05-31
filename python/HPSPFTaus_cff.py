@@ -701,9 +701,9 @@ from RecoTauTag.RecoTau.PFTauPrimaryVertexProducer_cfi      import *
 from RecoTauTag.RecoTau.PFTauSecondaryVertexProducer_cfi    import *
 from RecoTauTag.RecoTau.PFTauTransverseImpactParameters_cfi import *
 hpsPFTauPrimaryVertexProducer = PFTauPrimaryVertexProducer.clone(
-    PFTauTag =  cms.InputTag("hpsPFTauProducer"),
-    ElectronTag = cms.InputTag("MyElectrons"),
-    MuonTag = cms.InputTag("MyMuons"),
+    PFTauTag = cms.InputTag("hpsPFTauProducer"),
+    ElectronTag = cms.InputTag(""),
+    MuonTag = cms.InputTag(""),
     PVTag = cms.InputTag("offlinePrimaryVertices"),
     beamSpot = cms.InputTag("offlineBeamSpot"),
     TrackCollectionTag = cms.InputTag("generalTracks"),
@@ -712,24 +712,21 @@ hpsPFTauPrimaryVertexProducer = PFTauPrimaryVertexProducer.clone(
     RemoveMuonTracks = cms.bool(False),
     RemoveElectronTracks = cms.bool(False),
     useSelectedTaus = cms.bool(False)
-    )
-
+)
 hpsPFTauSecondaryVertexProducer = PFTauSecondaryVertexProducer.clone(
-    PFTauTag =  cms.InputTag("hpsPFTauProducer")
-    )
-
+    PFTauTag = cms.InputTag("hpsPFTauProducer")
+)
 hpsPFTauTransverseImpactParameters = PFTauTransverseImpactParameters.clone(
-    PFTauTag =  cms.InputTag("hpsPFTauProducer"),
+    PFTauTag = cms.InputTag("hpsPFTauProducer"),
     PFTauPVATag = cms.InputTag("hpsPFTauPrimaryVertexProducer"),
     PFTauSVATag = cms.InputTag("hpsPFTauSecondaryVertexProducer"),
     useFullCalculation = cms.bool(False)
-    )
-
-hpsPFTauVertexandImpactParametersSeq = cms.Sequence(
-    hpsPFTauPrimaryVertexProducer
-    *hpsPFTauSecondaryVertexProducer
-    *hpsPFTauTransverseImpactParameters
-    )
+)
+hpsPFTauVertexAndImpactParametersSeq = cms.Sequence(
+    hpsPFTauPrimaryVertexProducer*
+    hpsPFTauSecondaryVertexProducer*
+    hpsPFTauTransverseImpactParameters
+)
 
 produceHPSPFTaus = cms.Sequence(
     hpsSelectionDiscriminator
@@ -781,5 +778,7 @@ produceAndDiscriminateHPSPFTaus = cms.Sequence(
     hpsPFTauDiscriminationByTightMuonRejection2*
     hpsPFTauDiscriminationByLooseMuonRejection3*
     hpsPFTauDiscriminationByMediumMuonRejection3*
-    hpsPFTauDiscriminationByTightMuonRejection3   
+    hpsPFTauDiscriminationByTightMuonRejection3*
+
+    hpsPFTauVertexAndImpactParametersSeq
 )
