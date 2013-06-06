@@ -712,9 +712,14 @@ hpsPFTauPrimaryVertexProducer = PFTauPrimaryVertexProducer.clone(
     RemoveMuonTracks = cms.bool(False),
     RemoveElectronTracks = cms.bool(False),
     useSelectedTaus = cms.bool(False),
-    discriminators = cms.VPSet(cms.PSet(discriminator = cms.InputTag('hpsPFTauDiscriminationByDecayModeFinding'),selectionCut = cms.double(0.5))),
-    cut = cms.string("pt > 18.0 & abs(eta)<2.3")
-    )
+    discriminators = cms.VPSet(
+        cms.PSet(
+            discriminator = cms.InputTag('hpsPFTauDiscriminationByDecayModeFinding'),
+            selectionCut = cms.double(0.5)
+        )
+    ),
+    cut = cms.string("pt > 18.0 & abs(eta) < 2.4")
+)
 
 hpsPFTauSecondaryVertexProducer = PFTauSecondaryVertexProducer.clone(
     PFTauTag = cms.InputTag("hpsPFTauProducer")
